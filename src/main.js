@@ -63,7 +63,7 @@ function loadAndIndex() {
 
   // Dynamic import — Vite will code-split this into a separate chunk
   import('./voterData.js').then(({ default: voters }) => {
-    setStatus('🔍 Building search index…');
+    setStatus(' ');
     worker.postMessage({ type: 'INDEX', voters });
   });
 }
@@ -158,6 +158,7 @@ function renderResults(results, query) {
         <div class="voter-row"><span>Date of Enrolment</span><strong>${v.dateOfEnrolment}</strong></div>
         <div class="voter-row"><span>Bar Association</span><strong>${v.barAssociation}</strong></div>
         <div class="voter-row"><span>Judgship</span><strong>${v.judgship}</strong></div>
+        <div class="voter-row"><span>Voting Booth</span><strong>${v.barAssociation}</strong></div>
       </div>`;
     frag.appendChild(card);
   }
